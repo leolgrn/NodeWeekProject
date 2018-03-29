@@ -1,6 +1,6 @@
-module.exports = () => {
-    require('./users')();
-    require('./cars')();
-    require('./auth')();
-    require('./trips')();
+module.exports = Meteor => {
+    require('./users')(Meteor);
+    require('./cars')(Meteor);
+    require('./auth')(Meteor);
+    require('./trips')(Meteor);
 }

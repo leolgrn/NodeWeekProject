@@ -4,30 +4,14 @@ const POST = Picker.filter((req, res) => req.method === 'POST');
 const PUT = Picker.filter((req, res) => req.method === 'PUT');
 const DELETE = Picker.filter((req, res) => req.method === 'DELETE');
 
-module.exports = () => {
+module.exports = Meteor => {
 
-    GET
-        .route('/trips', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    GET.route('/trips', Meteor.controllers.trips.list);
 
-    POST
-        .route('/trips', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    POST.route('/trips', Meteor.controllers.trips.create);
 
-    PUT
-        .route('/trips/:id', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    PUT.route('/trips/:id', Meteor.controllers.trips.update);
 
-    DELETE
-        .route('/trips/:id', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    DELETE.route('/trips/:id', Meteor.controllers.trips.remove);
 
 }

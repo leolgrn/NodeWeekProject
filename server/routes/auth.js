@@ -1,12 +1,10 @@
 import { Picker } from 'meteor/meteorhacks:picker';
-const GET = Picker.filter((req, res) => req.method === 'GET');
+const POST = Picker.filter((req, res) => req.method === 'POST');
 
-module.exports = () => {
+module.exports = Meteor => {
 
-    GET
-        .route('/login', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    Picker.middleware(Meteor.middlewares.bodyParser.json());
+
+    POST.route('/login', Meteor.controllers.auth.login);
 
 }

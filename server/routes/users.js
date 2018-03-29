@@ -1,33 +1,23 @@
 import { Picker } from 'meteor/meteorhacks:picker';
-const GET = Picker.filter((req, res) => req.method === 'GET');
-const POST = Picker.filter((req, res) => req.method === 'POST');
-const PUT = Picker.filter((req, res) => req.method === 'PUT');
-const DELETE = Picker.filter((req, res) => req.method === 'DELETE');
+const userUrl = new RegExp('^\/users');
+const GET = Picker.filter((req, res) => req.method === 'GET' && req.url.match(userUrl));
+const POST = Picker.filter((req, res) => req.method === 'POST' && req.url.match(userUrl));
+const PUT = Picker.filter((req, res) => req.method === 'PUT' && req.url.match(userUrl));
+const DELETE = Picker.filter((req, res) => req.method === 'DELETE' && req.url.match(userUrl));
 
-module.exports = () => {
+module.exports = Meteor => {
 
-    GET
-        .route('/users', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    Picker.middleware(Meteor.middlewares.bodyParser.json());
+    Picker.middleware(Meteor.middlewares.setHeader);
 
-    POST
-        .route('/users', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    GET.route('/users/:id', Meteor.controllers.users.show);
 
-    PUT
-        .route('/users/:id', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    GET.route('/users', Meteor.controllers.users.list);
 
-    DELETE
-        .route('/users/:id', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    POST.route('/users', Meteor.controllers.users.create);
+
+    PUT.route('/users/:id', Meteor.controllers.users.update);
+
+    DELETE.route('/users/:id', Meteor.controllers.users.remove);
 
 }

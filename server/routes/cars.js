@@ -1,33 +1,24 @@
 import { Picker } from 'meteor/meteorhacks:picker';
-const GET = Picker.filter((req, res) => req.method === 'GET');
-const POST = Picker.filter((req, res) => req.method === 'POST');
-const PUT = Picker.filter((req, res) => req.method === 'PUT');
-const DELETE = Picker.filter((req, res) => req.method === 'DELETE');
+const carUrl = new RegExp('^\/cars');
+const GET = Picker.filter((req, res) => req.method === 'GET' && req.url.match(carUrl));
+const POST = Picker.filter((req, res) => req.method === 'POST' && req.url.match(carUrl));
+const PUT = Picker.filter((req, res) => req.method === 'PUT' && req.url.match(carUrl));
+const DELETE = Picker.filter((req, res) => req.method === 'DELETE' && req.url.match(carUrl));
 
-module.exports = () => {
+module.exports = Meteor => {
 
-    GET
-        .route('/cars', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    Picker.middleware(Meteor.middlewares.bodyParser.json());
+    Picker.middleware(Meteor.middlewares.setHeader);
 
-    POST
-        .route('/cars', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    GET.route('/cars', Meteor.controllers.cars.list);
 
-    PUT
-        .route('/cars/:id', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    GET.route('/cars/:id', Meteor.controllers.cars.show);
 
-    DELETE
-        .route('/cars/:id', (params, req, res, next) => {
-            const method = req.method;
-            res.end(method);
-        });
+    POST.route('/cars', Meteor.controllers.cars.create)
+        .middleware(Meteor.middlewares.ensureAuthenticated);
+
+    PUT.route('/cars/:id', Meteor.controllers.cars.update);
+
+    DELETE.route('/cars/:id', Meteor.controllers.cars.remove);
 
 }
