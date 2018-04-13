@@ -12,9 +12,9 @@ module.exports = Meteor => {
         }
 
         function updateUser(user){
-          user.cars = user.cars.concat(car._id);
+          user.cars = user.cars.concat(car);
           return new Promise((resolve, reject) => {
-            User.update(user._id, user, (err, userId) => err ? reject(err) : resolve(userId));
+            User.update(user._id, user, (err, data) => err ? reject(err) : resolve(data));
           });
         }
     }

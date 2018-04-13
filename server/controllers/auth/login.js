@@ -14,7 +14,7 @@ module.exports = Meteor => {
             .then(encryptedToken => res.end(JSON.stringify(encryptedToken)))
             .catch(error => {
               res.statusCode = 500 || error;
-              res.end(error.message || error);
+              res.end(JSON.stringify(error.message || error));
             });
 
         function find() {
@@ -22,8 +22,9 @@ module.exports = Meteor => {
               username: req.body.username,
               password: sha1(req.body.password)
           });
-          if (user) return Promise.resolve(user);
-          return Promise.reject({ code: 404, message: 'user not found' });
+          return new Promise((resolve, reject) => {
+            user ? resolve(user) : reject({ code: 404, message: 'user not found' });
+          });
         }
 
         function ensureLimitNotExceeded(user) {

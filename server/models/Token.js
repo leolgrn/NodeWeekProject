@@ -2,9 +2,7 @@ const Token = new Mongo.Collection('token');
 
 Token.schema = new SimpleSchema({
   user_id: {
-      type: [Object],
-      minCount: 1,
-      maxCount: 3
+      type: String
   },
   date: {
     type: Date

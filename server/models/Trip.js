@@ -10,20 +10,22 @@ Trip.schema = new SimpleSchema({
     status: {
         type: Number,
         defaultValue: 0
+    },
+    participants: {
+        type: [String]
+    },
+    driver: {
+        type: String
+    },
+    car: {
+        type: String
     }
-    // participants: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'User'
-    // }],
-    // driver: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'User',
-    //     required: true
-    // },
-    // car: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Car'
-    // }
 });
+
+Trip.Statuses = {
+    NotStarted: 0,
+    Started: 1,
+    Finished: 2
+};
 
 module.exports = Trip;

@@ -20,7 +20,7 @@ User.schema = new SimpleSchema({
         optional: true
     },
     cars: {
-        type: [String]
+        type: [Object]
     }
 });
 

@@ -2,13 +2,16 @@ module.exports = Meteor => {
     const Trip = Meteor.models.Trip;
 
     return (params, req, res, next) => {
-      //TODO: create a middleware for res.setHeader('Content-Type', 'application/json');
-      res.setHeader('Content-Type', 'application/json');
-      try {
+      find()
+        .then(trips => res.end(JSON.stringify(trips)))
+        .catch(error => {
+          res.statusCode = 500;
+          res.end(JSON.stringify(error));
+        });
+
+      function find(){
         const trips = Trip.find().fetch();
-        return res.end(JSON.stringify(trips));
-      } catch (e) {
-        return new Error();
+        return new Promise((resolve, reject) => trips ? resolve(trips) : reject('trips not found'));
       }
     }
 };

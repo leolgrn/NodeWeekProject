@@ -6,7 +6,7 @@ module.exports = Meteor => {
           .then(user => res.end(JSON.stringify(user)))
           .catch(error => {
             res.statusCode = 500;
-            res.end(error);
+            res.end(JSON.stringify(error));
           });
 
         function find(){

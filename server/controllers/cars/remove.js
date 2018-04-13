@@ -4,7 +4,7 @@ module.exports = Meteor => {
     return (params, req, res, next) => {
         remove()
             .then(pullFromOwner)
-            //.then(removeNotStartedTrips)
+            .then(removeNotStartedTrips)
             .then(() => {
               res.statusCode = 204;
               res.end();
@@ -19,10 +19,10 @@ module.exports = Meteor => {
                 .pullCar(car)
         }
 
-        // function removeNotStartedTrips() {
-        //     return Meteor.controllers.trips
-        //         .clean({car: req.params.id })
-        // }
+        function removeNotStartedTrips() {
+            return Meteor.controllers.trips
+                .clean({car: params.id })
+        }
 
         function remove(){
           return new Promise((resolve, reject) => {

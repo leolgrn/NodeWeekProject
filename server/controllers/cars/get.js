@@ -2,14 +2,7 @@ module.exports = Meteor => {
     const Car = Meteor.models.Car;
 
     return (criteria) => {
-        return Car
-            .findOne()
-            .where(criteria)
-            .then(results => {
-                if (!results || results.length === 0)
-                    return Promise.reject({code: 404, message: 'car.not.found'});
-
-                return results;
-            });
+      const car = Car.findOne(criteria);
+      return new Promise((resolve, reject) => car ? resolve(car) : reject('car not found'));
     }
 };

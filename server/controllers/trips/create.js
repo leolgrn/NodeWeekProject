@@ -1,14 +1,21 @@
 module.exports = Meteor => {
     const Trip = Meteor.models.Trip;
 
-    return (req, res, next) => {
+    return (params, req, res, next) => {
         const data = req.body;
         data.driver = req.user;
+        data.participants = [];
 
         ensureCarExists()
             .then(create)
-            .then(trip => res.status(201).send(trip))
-            .catch(err => res.status(err.code || 500).send(err.message || err));
+            .then(tripId => {
+              res.statusCode = 201;
+              res.end(JSON.stringify(tripId));
+            })
+            .catch(err => {
+              res.statusCode = err.code || 500;
+              res.end(JSON.stringify(err.message || err));
+            });
 
         function ensureCarExists() {
             return Meteor.controllers.cars
@@ -16,8 +23,9 @@ module.exports = Meteor => {
         }
 
         function create() {
-
-            return Trip.create(data);
+          return new Promise((resolve, reject) => {
+            Trip.insert(data, (err, tripId) => err ? reject(err) : resolve(tripId));
+          });
         }
     }
 };
