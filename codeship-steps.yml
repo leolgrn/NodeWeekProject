@@ -1,0 +1,12 @@
+- type: parallel
+  steps:
+    - service: npm install packages
+      command: npm i
+    - service: install meteor
+      command: curl https://install.meteor.com/ | sh
+    - service: laucnh meteor
+      command: npm start
+- name: test echo
+  tag: master
+  service: test echo
+  command: echo "Deploy here!"
