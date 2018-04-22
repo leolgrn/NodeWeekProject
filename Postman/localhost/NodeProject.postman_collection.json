@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "4ac4b93d-07ef-4ef3-8fb9-8798ba4c9881",
+		"name": "NodeProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post Cars",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.a2pQQTg0Z3VOMzNpWUZTaHg.DLedvURy2avaF8XqprqFi7Nr4NtEYqBzjzQyQGKPmmg"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"model\": \"Fusion\",\n\t\"color\": \"Grey\",\n\t\"owner\": \"user1\"\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/cars",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post User: User1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"user1\",\n\t\"password\": \"user1\",\n\t\"firstname\": \"userFirstName\",\n\t\"lastname\": \"userLastName\",\n\t\"age\": \"15\"\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/users",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login: user1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"user1\",\n  \"password\": \"user1\"\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/login",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cars",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "127.0.0.1:3000/cars",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
