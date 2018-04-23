@@ -2,7 +2,7 @@
   "name": "NodeWeekProject",
   "private": true,
   "scripts": {
-    "start": "meteor run",
+    "start": "curl https://install.meteor.com/ | sh && meteor run",
     "cleanup": "rm -rf ../bundle/",
     "dist": "npm run cleanup && meteor build ../ --directory --architecture os.linux.x86_64 --server-only",
     "predeploy": "npm run dist && cp app.yaml ../bundle/ && cp Dockerfile ../bundle/",
