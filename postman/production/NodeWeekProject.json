@@ -1,0 +1,493 @@
+{
+	"info": {
+		"_postman_id": "507453b7-018c-46ce-acec-80001fe9f0b0",
+		"name": "NodeWeekProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET cars",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/cars",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET cars by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/cars/zA37vGSbN7KyNAKEC",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"cars",
+						"zA37vGSbN7KyNAKEC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST cars",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.N0FkSGo4UDdxb0RhcXZIZzM.F4JJNDpynO7dKrSnd98b-WoifXw4GEPzoZnKcWpqQDc"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"model\": \"merco\",\n\t\"color\": \"black\",\n\t\"seats\": 5\n}"
+				},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/cars",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT cars",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"_id\": \"9bLno85LDoC8PjPpj\",\n        \"model\": \"Mercedes\",\n        \"color\": \"grey\",\n        \"seats\": 4,\n        \"owner\": \"8WqjQ7fGKqzZaAwxD\"\n}"
+				},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/cars/9bLno85LDoC8PjPpj",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"cars",
+						"9bLno85LDoC8PjPpj"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE cars",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/cars/eQDpTpB86jdR2hNbi",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"cars",
+						"eQDpTpB86jdR2hNbi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\" : \"spidey\",\n    \"password\" : \"venom\"\n}"
+				},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/login",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET trips",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/trips",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"trips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET trips by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/trips/oQWkdbAeQE3GY9Wae",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"trips",
+						"oQWkdbAeQE3GY9Wae"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST trips",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.MmFyc2VUY29acjhQSk11YTU.BZROyqQL_0-4ddvsFdMfbC3z2YdSgtt5aAT71NGIwx0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"start\": \"Paris\",\n\t\"end\": \"Toulouse\",\n\t\"status\": 0,\n\t\"car\": \"ciGQvziwgW9225RoE\"\n}"
+				},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/trips",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"trips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST trips join",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.dnFvaEFRWjNQdWlSS1lHV0U.c30e7NOKUsc_wlmL4OvswibevlqT8FZ38WGxuHZUgX4"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/trips/uNYFWJfye68eXM8fv/join",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"trips",
+						"uNYFWJfye68eXM8fv",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST trips start",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.MmFyc2VUY29acjhQSk11YTU.BZROyqQL_0-4ddvsFdMfbC3z2YdSgtt5aAT71NGIwx0"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/trips/xeG2Q7Avc8dkSPmEh/start",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"trips",
+						"xeG2Q7Avc8dkSPmEh",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST trips finish",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.MmFyc2VUY29acjhQSk11YTU.BZROyqQL_0-4ddvsFdMfbC3z2YdSgtt5aAT71NGIwx0"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/trips/clean",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"trips",
+						"clean"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT trips",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.V3A0alNFcGJhNFlHbVRtcGo.AUSpz85knV5_RjQKK5c_yuQCy9b3XsLjRSQltzMCTqw"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"status\":0\n}"
+				},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/trips/oQWkdbAeQE3GY9Wae",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"trips",
+						"oQWkdbAeQE3GY9Wae"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE trips",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.V3A0alNFcGJhNFlHbVRtcGo.AUSpz85knV5_RjQKK5c_yuQCy9b3XsLjRSQltzMCTqw"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/trips/uNYFWJfye68eXM8fv",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"trips",
+						"uNYFWJfye68eXM8fv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.aVlDTVNXcTNZQUx6cTJ5VEU.B1BNJUVQJ5ldnSYhS0l2iWY67DTW2bYY21X0HLOfraw",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task\":\"doSomething\"\n}"
+				},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/users",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET users by Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.aVlDTVNXcTNZQUx6cTJ5VEU.B1BNJUVQJ5ldnSYhS0l2iWY67DTW2bYY21X0HLOfraw"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/users",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"hulk\",\n    \"password\" : \"green\",\n    \"firstName\" : \"Bruce\",\n    \"lastname\" : \"Banner\",\n    \"age\" : 35\n}"
+				},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/users",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT users",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"hulk\",\n    \"password\" : \"none\",\n    \"firstName\" : \"Bruce\",\n    \"lastname\" : \"Banner\",\n    \"age\" : 15\n}"
+				},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/users/uojpQh3JZNNCpyuvg",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"users",
+						"uojpQh3JZNNCpyuvg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE users",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"spidey\",\n\t\"password\":\"venom\",\n\t\"firstName\": \"Peter\",\n\t\"lastname\": \"Parker\",\n\t\"age\": 17\n}"
+				},
+				"url": {
+					"raw": "https://gescar.herokuapp.com/users/uojpQh3JZNNCpyuvg",
+					"host": [
+						"https://gescar.herokuapp.com"
+					],
+					"path": [
+						"users",
+						"uojpQh3JZNNCpyuvg"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
